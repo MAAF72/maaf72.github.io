@@ -1,0 +1,187 @@
+:root {
+  --color-1: #162447;
+  --color-2: #1F4068;
+  --color-3: #1B1B2F;
+  --color-4: #E43F5A;
+  --color-5: #C4C4C4;
+}
+
+*, ::after, ::before { box-sizing: border-box; }
+
+html, body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+
+html { font-family: 'Fira Sans', sans-serif; }
+
+body { padding: 0 80px 0 80px; }
+
+img {
+  width: auto;
+  height: auto; 
+  object-fit: contain;
+  max-height: 100%;
+  max-width: 100%;
+}
+
+.h-1 { font-size: 96px; line-height: 115px; }
+.h-2 { font-size: 72px; line-height: 86px; }
+.h-3 { font-size: 64px; line-height: 77px; }
+.h-4 { font-size: 48px; line-height: 58px; }
+.h-5 { font-size: 36px; line-height: 43px; }
+.h-6 { font-size: 24px; line-height: 29px; }
+p { font-size: 18px; line-height: 150%; letter-spacing: 0.02em; word-wrap: break-word; }
+
+p.description { font-size: 24px; line-height: 150%; letter-spacing: 0.02em; word-wrap: break-word; }
+
+.text-center { text-align: center; }
+
+.font-bold { font-weight: bold; }
+
+.mb-4px { margin-bottom: 4px; }
+.mb-20px { margin-bottom: 20px; }
+.mb-40px { margin-bottom: 40px; }
+.mb-60px { margin-bottom: 60px; }
+.mb-100px { margin-bottom: 120px; }
+.mb-120px { margin-bottom: 120px; }
+.mb-140px { margin-bottom: 140px; }
+
+.p-40px { padding: 40px; }
+
+.color-1 { color: var(--color-1); }
+.color-2 { color: var(--color-2); }
+.color-3 { color: var(--color-3); }
+.color-4 { color: var(--color-4); }
+.color-5 { color: var(--color-5); }
+
+.bg-color-4 { color: white; background-color: var(--color-4); }
+
+.row { width: 100%; padding: 0; }
+
+.row::after {
+  content: ' ';
+  display: table;
+  clear: both;
+}
+
+.row [class*="col-"] {
+  position: relative;
+  padding: 0 20px 0 0;
+  margin: 0;
+  float: left;
+}
+
+.col-1 { width: 8.33%; }
+.col-2 { width: 16.66%; }
+.col-3 { width: 25%; }
+.col-4 { width: 33.33%; }
+.col-5 { width: 41.66%; }
+.col-6 { width: 50%; }
+.col-7 { width: 58.33%; }
+.col-8 { width: 66.66%; }
+.col-9 { width: 75%; }
+.col-10 { width: 83.33%; }
+.col-11 { width: 91.66%; }
+.col-12 { width: 100%; }
+
+a { text-decoration: none; }
+
+.nav {
+  background-color: white;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  padding: 35px 80px 15px 80px;
+  z-index: 2;
+}
+
+.nav .nav-link:last-child { margin-right: 0; }
+.nav .nav-link {
+  color: black;
+  margin: 0 60px 0 0;
+  font-size: 24px;
+  line-height: 29px;
+  padding-bottom: 4px;
+}
+
+.nav .nav-link.active {
+  border-bottom: 4px solid transparent;
+  z-index: -1;
+  border-color: var(--color-4);
+}
+
+.main { position: relative; top: 191px; }
+
+.front { z-index: 3; }
+
+.light-shadow { box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25); }
+.medium-shadow { box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.25); }
+
+.background {
+  position: absolute;
+  display: block;
+  top: 0;
+  left: 0;
+  z-index: 3;
+}
+
+.social-media > ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.social-media > ul > li { display: inline; }
+
+.social-media > ul > li > .social-link { margin-right: 56px; }
+
+.btn {
+  display: inline-block;
+  min-height: 48px;
+  padding: 10px 20px;
+  font-size: 20px;
+  line-height: 150%;
+  text-align: center;
+  color: white;
+  background: var(--color-1);
+  border: none;
+  outline: none;
+}
+
+.btn:hover {
+  background: var(--color-3);
+}
+
+.circle { border-radius: 50% !important; }
+.corner-8 { border-radius: 8px !important; }
+.corner-25 { border-radius: 25px !important; }
+
+/* .btn-down { */
+  /* -webkit-appearance: button; */
+  /* -moz-appearance: button; */
+  /* appearance: button; */
+  /* padding: 0 !important; */
+  /* height: 64px; */
+  /* width: 64px; */
+  /* overflow: hidden; */
+  /* background-image: url('../image/down.svg'); */
+  /* background-repeat: no-repeat; */
+  /* background-position: center center; */
+/* } */
+
+.project-thumbnail { 
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.25), 15px 15px var(--color-4); 
+  background-color: white; 
+  width: 200px; 
+  height: 200px; 
+  text-align: center; 
+  line-height: 200px;
+}
+
+.achievement-item { padding: 32px 40px; }
+.achievement-tag { display: inline-block;  padding: 8px 12px; font-size: 12px; line-height: 150%; }
+
+.blog-item { display: inline-block; }

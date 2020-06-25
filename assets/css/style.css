@@ -111,12 +111,28 @@ a { text-decoration: none; }
   border-color: var(--color-4);
 }
 
+.nav .nav-link:hover {
+  color: var(--color-4);
+}
+
 .main { position: relative; top: 191px; }
 
 .front { z-index: 3; }
 
 .light-shadow { box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25); }
 .medium-shadow { box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.25); }
+
+.profile-photo {
+  position: relative;
+  top: -140px;
+  float: right;
+  padding-right: 10%;
+}
+
+.illust {
+  float: right;
+  padding-right: 10%;
+}
 
 .background {
   position: absolute;
@@ -194,3 +210,12 @@ a { text-decoration: none; }
 .achievement-tag { display: inline-block;  padding: 8px 12px; font-size: 12px; line-height: 150%; }
 
 .blog-item { display: inline-block; }
+
+.blog-link { 
+  text-decoration: none; 
+  color: black;
+}
+
+.blog-link:hover {
+  color: var(--color-4);
+}

@@ -1,0 +1,95 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cara Membuat Test Case yang Baik</title>
+  <link rel="stylesheet" href="https://stackedit.io/style.css" />
+</head>
+
+<body class="stackedit">
+  <div class="stackedit__html"><h1 id="cara-membuat-test-case-yang-baik">Cara Membuat Test Case yang Baik</h1>
+<p>Test Case(TC) yang baik adalah TC yang menggunakan  EOL (End of Line) / Newline dengan format <strong>Unix (LF)</strong>.</p>
+<p>TC yang input maupun outputnya mengandung string wajib menggunakan format <strong>Unix (LF)</strong>.</p>
+<h3 id="cara-setting-format-newline-di-text-editor">Cara setting format newline di text editor:</h3>
+<p>Notepad++ :</p>
+<pre><code>Buka Menu Settings -&gt; Preferences -&gt; New Document.
+Pada section Format(Line Ending) ceklis Unix(LF)
+</code></pre>
+<p>Notepad :</p>
+<pre><code>Gak bisa gan :3 pakai Notepad++ saja
+</code></pre>
+<p>Sublime :</p>
+<p>Lihat answer kedua di <a href="https://stackoverflow.com/questions/39680585/how-do-configure-sublime-to-always-convert-to-unix-line-endings-on-save">sini</a></p>
+<p>Yang lain lain :</p>
+<pre><code>Silahkan google
+</code></pre>
+<h3 id="tc-generator">TC Generator</h3>
+<p>Gunakan template TC Generator dibawah ini untuk mengenerate TC secara otomatis dengan format Unix (LF)</p>
+<blockquote>
+<p>Menggunakan Python dengan tambahan library Numpy</p>
+</blockquote>
+<pre class=" language-python"><code class="prism  language-python"><span class="token keyword">import</span> os
+<span class="token keyword">import</span> numpy
+<span class="token keyword">import</span> time
+<span class="token keyword">import</span> random
+
+WINDOWS_LINE_ENDING <span class="token operator">=</span> b<span class="token string">'\r\n'</span>
+UNIX_LINE_ENDING <span class="token operator">=</span> b<span class="token string">'\n'</span>
+
+<span class="token keyword">def</span> <span class="token function">get_time</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">:</span>
+    <span class="token keyword">return</span> <span class="token builtin">int</span><span class="token punctuation">(</span><span class="token builtin">round</span><span class="token punctuation">(</span>time<span class="token punctuation">.</span>time<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    
+<span class="token keyword">def</span> <span class="token function">get_randint</span><span class="token punctuation">(</span>low<span class="token punctuation">,</span> high<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">return</span> numpy<span class="token punctuation">.</span>random<span class="token punctuation">.</span>randint<span class="token punctuation">(</span>low<span class="token punctuation">,</span> high <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">,</span> dtype<span class="token operator">=</span>numpy<span class="token punctuation">.</span>int64<span class="token punctuation">)</span>
+
+<span class="token keyword">def</span> <span class="token function">get_randfloat</span><span class="token punctuation">(</span>l_inclusive<span class="token punctuation">,</span> low<span class="token punctuation">,</span> h_inclusive<span class="token punctuation">,</span> high<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    rand <span class="token operator">=</span> <span class="token keyword">lambda</span> <span class="token punctuation">:</span> random<span class="token punctuation">.</span>random<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token punctuation">(</span>high <span class="token operator">-</span> low<span class="token punctuation">)</span> <span class="token operator">+</span> low
+    
+    res <span class="token operator">=</span> rand<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">while</span> <span class="token punctuation">(</span>l_inclusive <span class="token operator">and</span> res <span class="token operator">==</span> low<span class="token punctuation">)</span> <span class="token operator">or</span> <span class="token punctuation">(</span>h_inclusive <span class="token operator">and</span> res <span class="token operator">==</span> high<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        res <span class="token operator">=</span> rand<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        
+    <span class="token keyword">return</span> res
+
+<span class="token comment">#Generate 10 TC</span>
+<span class="token keyword">for</span> t <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span> <span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'Creating TC {}'</span><span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span>t <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    start_time <span class="token operator">=</span> get_time<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    
+    <span class="token comment">#Store the input string in input variable</span>
+    <span class="token builtin">input</span> <span class="token operator">=</span> <span class="token string">''</span> 
+    
+    <span class="token comment">#Create input file with Unix (LF) format</span>
+    input_name <span class="token operator">=</span> <span class="token string">'data\secret\{}.in'</span><span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span>t <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span>
+    input_file <span class="token operator">=</span> <span class="token builtin">open</span><span class="token punctuation">(</span>input_name<span class="token punctuation">,</span> <span class="token string">'w+'</span><span class="token punctuation">,</span> newline<span class="token operator">=</span><span class="token string">'\n'</span><span class="token punctuation">)</span>
+    input_file<span class="token punctuation">.</span>write<span class="token punctuation">(</span><span class="token builtin">input</span><span class="token punctuation">)</span>
+    input_file<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    run_time <span class="token operator">=</span> get_time<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-</span> start_time
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'TC {} successfully created in {}s'</span><span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span>t <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">,</span> run_time<span class="token punctuation">)</span><span class="token punctuation">)</span>
+    
+    <span class="token comment">#Create output file based on solution</span>
+    start_time <span class="token operator">=</span> get_time<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    output_name <span class="token operator">=</span> <span class="token string">'data\secret\{}.ans'</span><span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span>t <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span>
+    os<span class="token punctuation">.</span>system<span class="token punctuation">(</span><span class="token string">'a &lt; {} &gt; {}'</span><span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span>input_name<span class="token punctuation">,</span> output_name<span class="token punctuation">)</span><span class="token punctuation">)</span>  <span class="token comment">#a is program name with .exe extension</span>
+    run_time <span class="token operator">=</span> get_time<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-</span> start_time
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'TC {} executed in {}s'</span><span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span>t <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">,</span> run_time<span class="token punctuation">)</span><span class="token punctuation">)</span>
+    
+    <span class="token comment">#Change EOL of output file to Unix (LF) format</span>
+    content <span class="token operator">=</span> <span class="token boolean">None</span>
+    <span class="token keyword">with</span> <span class="token builtin">open</span><span class="token punctuation">(</span>output_name<span class="token punctuation">,</span> <span class="token string">'rb'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> open_output<span class="token punctuation">:</span>
+        content <span class="token operator">=</span> open_output<span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    
+    <span class="token keyword">if</span> content<span class="token punctuation">:</span>
+        content <span class="token operator">=</span> content<span class="token punctuation">.</span>replace<span class="token punctuation">(</span>WINDOWS_LINE_ENDING<span class="token punctuation">,</span> UNIX_LINE_ENDING<span class="token punctuation">)</span>
+    
+    <span class="token keyword">with</span> <span class="token builtin">open</span><span class="token punctuation">(</span>output_name<span class="token punctuation">,</span> <span class="token string">'wb'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> open_output<span class="token punctuation">:</span>
+        open_output<span class="token punctuation">.</span>write<span class="token punctuation">(</span>content<span class="token punctuation">)</span>
+
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'Done'</span><span class="token punctuation">)</span>
+</code></pre>
+</div>
+</body>
+
+</html>

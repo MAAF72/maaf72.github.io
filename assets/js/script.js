@@ -5,11 +5,20 @@ window.onbeforeunload = () => {
 $(window).on('load', () => {
     $(document).on('scroll', onScroll);
     $('.nav-link').on('click', smoothScroll);
+    $('.sticky-wrapper').each((i, obj) => {
+        $(obj).css({ height: $(obj).next().height() });
+    });
+});
+
+$(window).resize(function () {
+    $('.sticky-wrapper').each((i, obj) => {
+        $(obj).css({ height: $(obj).next().height() });
+    });
 });
 
 function onScroll(e) {
     let scrollPos = $(document).scrollTop();
-    $('.nav-link').each((key, val) => { //(this) not work lol, always refers to document
+    $('.nav-link').each((key, val) => {
         let refElement = $(val.hash);
         if (refElement.position().top <= scrollPos && refElement.position().top + refElement.height() > scrollPos) {
             $('.nav-link').removeClass('active');

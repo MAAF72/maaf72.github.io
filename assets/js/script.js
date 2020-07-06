@@ -17,7 +17,7 @@ $(window).resize(function () {
     $('.sticky-wrapper').each((i, obj) => {
         $(obj).css({ height: $(obj).next().height() });
     });
-    $('.main').css({ top: $('.nav').height() + 100 });
+    $('.main').css({ top: $('.nav').height() + 120 });
     $('.profile-photo').css({ top: -1 * ($('.nav').height() + 60) });
 });
 

@@ -8,12 +8,17 @@ $(window).on('load', () => {
     $('.sticky-wrapper').each((i, obj) => {
         $(obj).css({ height: $(obj).next().height() });
     });
+    $('.main').css({ top: $('.nav').height() + 120 });
+    $('.profile-photo').css({ top: -1 * ($('.nav').height() + 60) });
+    window.scrollTo(0, 0);
 });
 
 $(window).resize(function () {
     $('.sticky-wrapper').each((i, obj) => {
         $(obj).css({ height: $(obj).next().height() });
     });
+    $('.main').css({ top: $('.nav').height() + 100 });
+    $('.profile-photo').css({ top: -1 * ($('.nav').height() + 60) });
 });
 
 function onScroll(e) {
@@ -30,7 +35,7 @@ function onScroll(e) {
 function smoothScroll(e) {
     e.preventDefault();
     $('html, body').stop().animate(
-        { 'scrollTop': $(this.hash).offset().top - 79 - 70}, //79 is navbar height, 70 is half of margin from before section
+        { 'scrollTop': $(this.hash).offset().top - $('.nav').height() - (this.hash != '#profile' ? 70 : 140)}, //79 is navbar height, 70 is half of margin from before section
         500,
         'swing'
     );

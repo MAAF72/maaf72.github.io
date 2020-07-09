@@ -6,7 +6,7 @@ $(window).on('load', () => {
     $(document).on('scroll', onScroll);
     $('.nav-link').on('click', smoothScroll);
     $('.sticky-wrapper').each((i, obj) => {
-        $(obj).css({ height: $(obj).next().height() });
+        $(obj).css({ height: Math.max($(obj).height(), $(obj).next().height()) });
     });
     $('.main').css({ top: $('.nav').height() + 120 });
     $('.profile-photo').css({ top: -1 * ($('.nav').height() + 60) });
@@ -18,7 +18,7 @@ $(window).on('load', () => {
 
 $(window).resize(function () {
     $('.sticky-wrapper').each((i, obj) => {
-        $(obj).css({ height: $(obj).next().height() });
+        $(obj).css({ height: Math.max($(obj).height(), $(obj).next().height()) });
     });
     $('.main').css({ top: $('.nav').height() + 120 });
     $('.profile-photo').css({ top: -1 * ($('.nav').height() + 60) });

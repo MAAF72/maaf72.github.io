@@ -10,7 +10,10 @@ $(window).on('load', () => {
     });
     $('.main').css({ top: $('.nav').height() + 120 });
     $('.profile-photo').css({ top: -1 * ($('.nav').height() + 60) });
-    window.scrollTo(0, 0);
+    $(".loader").fadeOut(1000, () => {
+        $(".nav").css('visibility', 'visible');
+        $(".main").css('visibility', 'visible');
+    });
 });
 
 $(window).resize(function () {

@@ -1,0 +1,57 @@
+{
+    "fullname": "Muhammad Abdurrohman Al Fatih",
+    "surname": "Fatih",
+    "photo": "photo.png",
+    "job": "Web Developer",
+    "description": "An undergraduate of Informatics at Telkom University who interested in website development and competitive programming.",
+    "contact": {
+        "instagram": "https://www.instagram.com/maaf72/",
+        "facebook": "https://www.facebook.com/muhammad.a.alfatih",
+        "github": "https://github.com/maaf72",
+        "linkedin": "https://id.linkedin.com/in/muhammad-abdurrohman-al-fatih-613925171",
+        "hackerrank": "https://www.hackerrank.com/altair72",
+        "whatsapp": "whatsapp://call?number=081295084653"
+    },
+    "projects": [
+        {
+            "name": "Merge Sort Visualizer",
+            "description": "A web that visualizing merge sort algorithm. Made with html, css, and javascript.",
+            "thumbnail": "merge_sort_visualizer.png",
+            "url": "https://maaf72.github.io/DAA-Course/Tupro/",
+            "repository": "https://github.com/MAAF72/DAA-Course/tree/master/Tupro"
+        },
+        {
+            "name": "Merge Sort Comparator",
+            "description": "A web that comparing the time execution between merge sort and bubble sort. Made with html, css, and javascript.",
+            "thumbnail": "merge_sort_comparator.png",
+            "url": "https://maaf72.github.io/DAA-Course/Tupro/compare.html",
+            "repository": "https://github.com/MAAF72/DAA-Course/tree/master/Tupro"
+        },
+        {
+            "name": "Competitive Programming Archive",
+            "description": "A web for archiving my community's competitive programming journey. Made with html, css, and javascript.",
+            "thumbnail": "cp_archive.png",
+            "url": "https://comtran.github.io/archive",
+            "repository": "https://github.com/comtran/archive"
+        }
+    ],
+    "achievements": [
+        {
+            "event": "ACM-ICPC 2019 Multi-Provincial Maranatha",
+            "title": "Finalist",
+            "tags": ["Competitive Programming"]
+        },
+        {
+            "event": "ACM-ICPC 2019 Multi-Provincial IdeaFuse",
+            "title": "Finalist",
+            "tags": ["Competitive Programming"]
+        }
+    ],
+    "blog": [
+        {
+            "title": "Cara Membuat Test Case yang Baik",
+            "thumbnail": "tc-guide.png",
+            "url": "tc-guide.html"
+        }
+    ]
+}

@@ -101,7 +101,7 @@ function render() {
                     <div class="blog-thumbnail medium-shadow mb-20px">
                       <img src="assets/thumbnail/blog/${e.thumbnail}">
                     </div>
-                    <div class="h-6 font-bold"><a class="blog-link" href="blog/${e.thumbnail}">${e.title}</a></div>
+                    <div class="h-6 font-bold"><a class="blog-link" href="blog/${e.url}">${e.title}</a></div>
                   </div>
                 </div>
                 `);

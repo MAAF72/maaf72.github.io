@@ -37,13 +37,18 @@
     ],
     "achievements": [
         {
+            "event": "DevC Clash of Code 2020",
+            "title": "4<sup><small>th</small></sup> Place",
+            "tags": ["Competitive Programming"]
+        },
+        {
             "event": "ACM-ICPC 2019 Multi-Provincial Maranatha",
             "title": "Finalist",
             "tags": ["Competitive Programming"]
         },
         {
             "event": "ACM-ICPC 2019 Multi-Provincial IdeaFuse",
-            "title": "Finalist",
+            "title": "11<sup><small>th</small></sup> Place",
             "tags": ["Competitive Programming"]
         }
     ],

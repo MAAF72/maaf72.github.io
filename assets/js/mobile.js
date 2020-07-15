@@ -3,17 +3,15 @@ window.onbeforeunload = () => {
 };
 
 $(window).on('load', () => {
-    if (window.matchMedia("only screen and (max-width: 760px)").matches) {
-        location.href = 'mobile.html';
+    if (!(window.matchMedia("only screen and (max-width: 760px)").matches)) {
+        location.href = 'index.html';
     }
     render();
     $(document).on('scroll', onScroll);
-    $('.nav-link').on('click', smoothScroll);
     $('.sticky-wrapper').each((i, obj) => {
         $(obj).css({ height: Math.max($(obj).height(), $(obj).next().height()) });
     });
     $('.main').css({ top: $('.nav').height() + 120 });
-    $('.profile-photo').css({ top: -1 * ($('.nav').height() + 60) });
     $(".loader").fadeOut(1000, () => {
         $(".nav").css('visibility', 'visible');
         $(".main").css('visibility', 'visible');
@@ -30,22 +28,13 @@ $(window).resize(function () {
 
 function onScroll(e) {
     let scrollPos = $(document).scrollTop();
-    $('.nav-link').each((key, val) => {
-        let refElement = $(val.hash);
+    let sections = ['profile', 'projects', 'achievements', 'blog'];
+    for (var e of sections) {
+        let refElement = $('#' + e);
         if (refElement.position().top <= scrollPos && refElement.position().top + refElement.height() > scrollPos) {
-            $('.nav-link').removeClass('active');
-            $(val).addClass('active');
+            $('.nav-link').html(e.charAt(0).toUpperCase() + e.slice(1));
         }
-    });
-}
-
-function smoothScroll(e) {
-    e.preventDefault();
-    $('html, body').stop().animate(
-        { 'scrollTop': $(this.hash).offset().top - $('.nav').height() - (this.hash != '#profile' ? 70 : 140)}, //79 is navbar height, 70 is half of margin from before section
-        500,
-        'swing'
-    );
+    };
 }
 
 function render() {
@@ -54,7 +43,7 @@ function render() {
         dataType: 'json',
         async: false,
         success: (d) => {
-            $('#profile .illust').append(`<img class="profile-photo" src="assets/image/${d.photo}">`);
+            $('#photo').append(`<img src="assets/image/${d.photo}">`);
             $('#surname').html(d.surname);
             $('#job').html(d.job);
             $('.description').html(d.description);
@@ -64,23 +53,23 @@ function render() {
             $('#linkedin-link').attr('href', d.contact.linkedin);
             $('#hackerrank-link').attr('href', d.contact.hackerrank);
             $('#whatsapp-link').attr('href', d.contact.whatsapp);
-            var projectsDOM = $('#projects .col-6').get(1);
-            var achievementsDOM = $('#achievements .col-6').get(1);
-            var blogDOM = $('#blog .col-6 .row');
+            var projectsDOM = $('#projects .col-12').get(0);
+            var achievementsDOM = $('#achievements .col-12').get(0);
+            var blogDOM = $('#blog .col-12').get(0);
             for (var e of d.projects) {
                 $(projectsDOM).append(`
                 <div class="project-item mb-60px">
-                  <div class="row">
-                    <div class="col-5">
+                  <div class="container">
+                    <div class="col-12">
                       <div class="project-thumbnail corner-25">
                         <img src="assets/thumbnail/projects/${e.thumbnail}">
                       </div>
-                    </div>
-                    <div class="col-7">
-                      <div class="h-5 font-bold color-4 mb-20px">${e.name}</div>
-                      <p class="mb-60px">${e.description}</p>
-                      <a class="btn light-shadow corner-8" href="${e.url}" target="_blank">Visit</a>
-                      <a class="btn light-shadow corner-8" href="${e.repository}" target="_blank">Github</a>
+                      <div>
+                        <div class="h-2 font-bold color-4 mb-20px">${e.name}</div>
+                        <p class="mb-60px">${e.description}</p>
+                        <a class="btn light-shadow corner-8" href="${e.url}" target="_blank">Visit</a>
+                        <a class="btn light-shadow corner-8" href="${e.repository}" target="_blank">Github</a>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -90,8 +79,8 @@ function render() {
             for (var e of d.achievements) {
                 $(achievementsDOM).append(`
                 <div class="achievement-item corner-25 medium-shadow mb-60px">
-                  <div class="h-4 font-bold mb-20px">${e.title}</div>
-                  <div class="h-6 font-bold mb-20px">${e.event}</div>
+                  <div class="h-2 font-bold mb-20px">${e.title}</div>
+                  <div class="h-4 font-bold mb-20px">${e.event}</div>
                   <div class="achievement-tag bg-color-4 corner-25">#${e.tags[0]}</div>
                 </div>
                 `);
@@ -99,12 +88,12 @@ function render() {
             
             for (var e of d.blog) {
                 $(blogDOM).append(`
-                <div class="col-6">
+                <div class="col-12">
                   <div class="blog-item text-center mb-40px">
                     <div class="blog-thumbnail medium-shadow mb-20px">
                       <img src="assets/thumbnail/blog/${e.thumbnail}">
                     </div>
-                    <div class="h-6 font-bold"><a class="blog-link" href="blog/${e.url}">${e.title}</a></div>
+                    <a class="blog-link" href="blog/${e.url}">${e.title}</a>
                   </div>
                 </div>
                 `);

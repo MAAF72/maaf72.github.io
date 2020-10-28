@@ -47,9 +47,18 @@
             "tags": ["Competitive Programming"]
         },
         {
-            "event": "ACM-ICPC 2019 Multi-Provincial IdeaFuse",
+            "event": "ICPC 2019 Multi-Provincial IdeaFuse",
             "title": "11<sup><small>th</small></sup> Place",
-            "tags": ["Competitive Programming"]
+            "tags": ["Competitive Programming"],
+            "date": "26 Mei 2019 - 22 Juni 2019",
+            "web": "https://ideafuse.mikroskil.ac.id/2019/icpc"
+        },
+        {
+            "event": "Pemrograman GemasTIK XII",
+            "title": "Finalist",
+            "tags": ["Competitive Programming"],
+            "date": "19 September 2020 - 22 Oktober 2020",
+            "web": "http://cpcompetition-gemastik13.telkomuniversity.ac.id/"
         }
     ],
     "blog": [
@@ -57,6 +66,11 @@
             "title": "Cara Membuat Test Case yang Baik",
             "thumbnail": "tc-guide.png",
             "url": "tc-guide.html"
+        },
+        {
+            "title": "Panduan Membuat Soal CP yang Baik",
+            "thumbnail": "ps-guide.png",
+            "url": "ps-guide.html"
         }
     ]
 }

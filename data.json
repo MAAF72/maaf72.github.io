@@ -37,21 +37,11 @@
     ],
     "achievements": [
         {
-            "event": "DevC Clash of Code 2020",
-            "title": "4<sup><small>th</small></sup> Place",
-            "tags": ["Competitive Programming"]
-        },
-        {
-            "event": "ACM-ICPC 2019 Multi-Provincial Maranatha",
+            "event": "Hology 3.0 - Programming",
             "title": "Finalist",
-            "tags": ["Competitive Programming"]
-        },
-        {
-            "event": "ICPC 2019 Multi-Provincial IdeaFuse",
-            "title": "11<sup><small>th</small></sup> Place",
             "tags": ["Competitive Programming"],
-            "date": "26 Mei 2019 - 22 Juni 2019",
-            "web": "https://ideafuse.mikroskil.ac.id/2019/icpc"
+            "date": "1 November 2020 - 14 November 2020",
+            "web": "https://hology.ub.ac.id/#/competition/programming"
         },
         {
             "event": "Pemrograman GemasTIK XII",
@@ -61,11 +51,32 @@
             "web": "http://cpcompetition-gemastik13.telkomuniversity.ac.id/"
         },
         {
-            "event": "Hology 3.0 - Programming",
+            "event": "DevC Clash of Code 2020",
+            "title": "4<sup><small>th</small></sup> Place",
+            "tags": ["Competitive Programming"],
+            "date": "13 Juni 2020 - 22 Juni 2020",
+            "web": "https://icpc.it.maranatha.edu/"
+        },
+        {
+            "event": "ACM-ICPC 2019 Multi-Provincial Maranatha",
             "title": "Finalist",
             "tags": ["Competitive Programming"],
-            "date": "1 November 2020 - 14 November 2020",
-            "web": "https://hology.ub.ac.id/#/competition/programming"
+            "date": "7 September 2019 - 28 September 2019"
+            "web": "https://devcbandung.github.io/clashofcode/"
+        },
+        {
+            "event": "ICPC 2019 Multi-Provincial IdeaFuse",
+            "title": "11<sup><small>th</small></sup> Place",
+            "tags": ["Competitive Programming"],
+            "date": "26 Mei 2019 - 22 Juni 2019",
+            "web": "https://ideafuse.mikroskil.ac.id/2019/icpc"
+        },
+        {
+            "event": "Computing Competitive Programming 2018",
+            "title": "4<sup><small>th</small></sup> Place",
+            "tags": ["Competitive Programming"],
+            "date": "18 November 2018 - 25 November 2018",
+            "web": "https://www.hackerrank.com/computing-competitive-programming-2018-final"
         }
     ],
     "blog": [

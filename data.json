@@ -33,6 +33,20 @@
             "thumbnail": "cp_archive.png",
             "url": "https://comtran.github.io/archive",
             "repository": "https://github.com/comtran/archive"
+        },
+        {
+            "name": "ULTRAG",
+            "description": "Ultimate Rational Auto Grader (ULTRAG) is an online judge for grading programming assignment. Made with Django and RabbitMQ.",
+            "thumbnail": "ultrag.png",
+            "url": "http://ultrag.herokuapp.com/",
+            "repository": "https://github.com/MAAF72/Auto-Grader"
+        },
+        {
+            "name": "ComBot",
+            "description": "ComBot or COMTRAN Bot is a Discord bot that help creating a personal competitive programming contest where the problemset is taken from another online judge platform. Made with Python and Discord API.",
+            "thumbnail": "combot.png",
+            "url": "https://discord.com/api/oauth2/authorize?client_id=735712565455355906&permissions=0&scope=bot",
+            "repository": "https://github.com/MAAF72/ComBot"
         }
     ],
     "achievements": [

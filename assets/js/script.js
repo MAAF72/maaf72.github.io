@@ -78,7 +78,7 @@ function render() {
                     </div>
                     <div class="col-7">
                       <div class="h-5 font-bold color-4 mb-20px">${e.name}</div>
-                      <p class="mb-60px">${e.description}</p>
+                      <p class="justify mb-60px">${e.description}</p>
                       <a class="btn light-shadow corner-8" href="${e.url}" target="_blank">Visit</a>
                       <a class="btn light-shadow corner-8" href="${e.repository}" target="_blank">Github</a>
                     </div>

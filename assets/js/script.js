@@ -2,6 +2,14 @@ window.onbeforeunload = () => {
     window.scrollTo(0, 0);
 };
 
+function updateProfilePosition() {
+    $('.sticky-wrapper').each((i, obj) => {
+        $(obj).css({ height: Math.max($(obj).height(), $(obj).next().height()) });
+    });
+    $('.main').css({ top: $('.nav').height() + 90 });
+    $('.profile-photo').css({ top: -1 * ($('.nav').height() + 30) });
+}
+
 $(window).on('load', () => {
     if (window.matchMedia("only screen and (max-width: 760px)").matches) {
         location.href = 'mobile.html';
@@ -9,30 +17,22 @@ $(window).on('load', () => {
     render();
     $(document).on('scroll', onScroll);
     $('.nav-link').on('click', smoothScroll);
-    $('.sticky-wrapper').each((i, obj) => {
-        $(obj).css({ height: Math.max($(obj).height(), $(obj).next().height()) });
-    });
-    $('.main').css({ top: $('.nav').height() + 120 });
-    $('.profile-photo').css({ top: -1 * ($('.nav').height() + 60) });
+   
+    updateProfilePosition();
     $(".loader").fadeOut(1000, () => {
         $(".nav").css('visibility', 'visible');
         $(".main").css('visibility', 'visible');
     });
 });
 
-$(window).resize(function () {
-    $('.sticky-wrapper').each((i, obj) => {
-        $(obj).css({ height: Math.max($(obj).height(), $(obj).next().height()) });
-    });
-    $('.main').css({ top: $('.nav').height() + 120 });
-    $('.profile-photo').css({ top: -1 * ($('.nav').height() + 60) });
-});
+$(window).resize(() => updateProfilePosition());
 
 function onScroll(e) {
     let scrollPos = $(document).scrollTop();
     $('.nav-link').each((key, val) => {
         let refElement = $(val.hash);
-        if (refElement.position().top <= scrollPos && refElement.position().top + refElement.height() > scrollPos) {
+        let additionalHeight = refElement.outerHeight(true) - refElement.height();
+        if (refElement.position().top - additionalHeight <= scrollPos && refElement.position().top + refElement.height() + additionalHeight > scrollPos) {
             $('.nav-link').removeClass('active');
             $(val).addClass('active');
         }
@@ -42,7 +42,7 @@ function onScroll(e) {
 function smoothScroll(e) {
     e.preventDefault();
     $('html, body').stop().animate(
-        { 'scrollTop': $(this.hash).offset().top - $('.nav').height() - (this.hash != '#profile' ? 70 : 140)}, //79 is navbar height, 70 is half of margin from before section
+        { 'scrollTop': $(this.hash).offset().top - $('.nav').height() - (this.hash != '#profile' ? 70 : 140)}, //79 is navbar height, 140 is margin of section, 70 is half of margin from before section
         500,
         'swing'
     );

@@ -20,6 +20,10 @@ Notification
                             if (currentToken) {
                                 console.log('Notification permission granted.')
                                 console.log('Device token is : ' + currentToken)
+
+                                if ($('#fcm-token').length) {
+                                    $('#fcm-token').text(currentToken)
+                                }
                             } else {
                                 console.log('Please request new permission.')
                             }

@@ -30,12 +30,12 @@ Notification
                         })
                     })
             } else {
-                console.log('serviceWorker not found in navigator')
+                alert('serviceWorker not found in navigator')
             }
         } else {
             console.log('Notification permission denied. ' + permission)
         }
     })
     .catch(function (err) {
-        console.log('Unable to get permission to notify.', err)
+        alert('Unable to get permission to notify.', err)
     })

@@ -6,7 +6,8 @@ import random
 WINDOWS_LINE_ENDING = b'\r\n'
 UNIX_LINE_ENDING = b'\n'
 
-TC_DIR = os.path.join('data', 'secret')
+TC_INPUT_DIR = os.path.join('input')
+TC_OUTPUT_DIR = os.path.join('output')
 
 def create_tc(input_name):
     #Store the input string in input variable
@@ -44,14 +45,15 @@ def get_randfloat(l_inclusive, low, h_inclusive, high):
         
     return res
 
-#Create TC Folder (DOMJudge style)
-os.makedirs(TC_DIR, exist_ok=True)
+#Create TC Folder (Hackerrank style)
+os.makedirs(TC_INPUT_DIR, exist_ok=True)
+os.makedirs(TC_OUTPUT_DIR, exist_ok=True)
 
 #Generate 20 TC
-tc = 1
+tc = 0
 while tc <= 10:
     print('Creating TC {}'.format(tc))
-    input_name = os.path.join(TC_DIR, f'{tc}.in')
+    input_name = os.path.join(TC_INPUT_DIR, f'input{tc}.txt')
 
     start_time = get_time()
     create_tc(input_name)
@@ -61,7 +63,7 @@ while tc <= 10:
     
     #Create output file based on solution
     start_time = get_time()
-    output_name = os.path.join(TC_DIR, f'{tc}.ans')
+    output_name = os.path.join(TC_INPUT_DIR, f'output{tc}.txt')
     os.system('./a.out < {} > {}'.format(input_name, output_name))  #a is program name with .exe extension
     run_time = get_time() - start_time
     print('TC {} executed in {}s'.format(tc, run_time))
